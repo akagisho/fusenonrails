@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Top:</b>
+  <%= @sticky.top %>
+</p>
+
+<p>
+  <b>Left:</b>
+  <%= @sticky.left %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @sticky.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_sticky_path(@sticky) %> |
+<%= link_to 'Back', stickies_path %>
