@@ -4,16 +4,21 @@
 
 <script>
 $(document).ready(function(){
-  var obj;
-<% @stickies.each do |sticky| %>
-  obj = $("#container").addFusen(
-    {
-      top: <%= sticky.top -%>,
-      left: <%= sticky.left -%>
-    },
-    "<%= sticky.comment -%>"
+  $.get(
+    "stickies/list.json",
+    null,
+    function(data){
+      $.each(data, function(){
+        obj = $("#container").addFusen(
+          {
+            top: this.top,
+            left: this.left
+          },
+          this.comment
+        );
+        obj.attr("id", "sticky_" + this.id);
+      });
+    }
   );
-  obj.attr("id", "sticky_" + <%= sticky.id -%>);
-<% end %>
 });
 </script>
