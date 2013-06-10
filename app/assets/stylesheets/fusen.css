@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+}
+
+.fusen {
+    border-left: inset 10px #0000FF;
+    /*
+    border-right: inset 1px #CCCCCC;
+    border-bottom: inset 1px #CCCCCC;
+    */
+    box-shadow: 2px 1px 2px #CCCCCC;
+    backgroud-color: #FFFFFF;
+    position: absolute;
+    width: 10em;
+    height: 2em;
+    font-familly: monospace;
+}
+
+.fusen textarea {
+    border: 0;
+    font-size: 1em;
+    width: 10em;
+    height: 2em;
+}

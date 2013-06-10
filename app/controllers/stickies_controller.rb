@@ -10,6 +10,15 @@ class StickiesController < ApplicationController
     end
   end
 
+  def list
+    @stickies = Sticky.all
+
+    respond_to do |format|
+      format.html # list.html.erb
+      format.json { render json: @stickies }
+    end
+  end
+
   # GET /stickies/1
   # GET /stickies/1.json
   def show

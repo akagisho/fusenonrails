@@ -1,4 +1,6 @@
 Fusen::Application.routes.draw do
+  root :to => "stickies#index"
+  match "stickies/list", :to => "stickies#list"
   resources :stickies
 
 

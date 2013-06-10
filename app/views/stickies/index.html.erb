@@ -1,27 +1,19 @@
-<h1>Listing stickies</h1>
+<div id="container">
+    <div class="fusen"></div>
+</div>
 
-<table>
-  <tr>
-    <th>Top</th>
-    <th>Left</th>
-    <th>Comment</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<script>
+$(document).ready(function(){
+  var obj;
 <% @stickies.each do |sticky| %>
-  <tr>
-    <td><%= sticky.top %></td>
-    <td><%= sticky.left %></td>
-    <td><%= sticky.comment %></td>
-    <td><%= link_to 'Show', sticky %></td>
-    <td><%= link_to 'Edit', edit_sticky_path(sticky) %></td>
-    <td><%= link_to 'Destroy', sticky, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  obj = $("#container").addFusen(
+    {
+      top: <%= sticky.top -%>,
+      left: <%= sticky.left -%>
+    },
+    "<%= sticky.comment -%>"
+  );
+  obj.attr("id", "sticky_" + <%= sticky.id -%>);
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Sticky', new_sticky_path %>
+});
+</script>
